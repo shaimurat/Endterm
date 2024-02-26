@@ -1,4 +1,4 @@
-public class Character{
+public class Character extends CharacterFunctions{
     private String name;
     private int health;
     private int intelligence;
