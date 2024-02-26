@@ -13,6 +13,7 @@ public class Character extends CharacterFunctions{
     public String getName() {
         return name;
     }
+
     public void setSaveHealth(int saveHealth) {
         this.saveHealth = saveHealth;
     }
@@ -35,11 +36,5 @@ public class Character extends CharacterFunctions{
     }
     public int getIntelligence() {
         return intelligence;
-    }
-    public void restoreHp(){
-        setHealth(getSaveHealth());
-    }
-    public void takenDamage(int damage) {
-        setHealth(getHealth()-damage);
     }
 }

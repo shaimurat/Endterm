@@ -122,15 +122,15 @@ public class Main {
         if(mob.ability()==2){
             mob_hit+=1;
         }
-        player.takenDamage(mob.getDamage());
+        player.takenDamage(mob.getDamage(),player);
         System.out.println(RED+"\n-" + mob.getDamage()+"\n You have:"+player.getHealth()+"hp"+RESET);
         if (mob_hit==2){
             System.out.println(RED+"\nYou're bleeding: -100HP"+"\nYou have:"+player.getHealth()+"hp"+RESET);
-            player.takenDamage(100);
+            player.takenDamage(100,player);
         }
         if (player.getHealth()<=0){
-            player.restoreHp();
-            mob.restoreHp();
+            player.restoreHp(player);
+            mob.restoreHp(player);
             System.out.println(RED+"\nYou died,try again"+RESET);
             return false;
         }
@@ -165,16 +165,16 @@ public class Main {
                     if(mob.ability()==2){
                         mob_hit+=1;
                     }
-                    player.takenDamage(mob.getDamage());
+                    player.takenDamage(mob.getDamage(),player);
                     System.out.println(RED+"\n-" + mob.getDamage()+"\n You have:"+player.getHealth()+"hp"+RESET);
                     if (mob_hit==2){
                         System.out.println(RED+"\nYou're bleeding: -100HP"+"\nYou have:"+player.getHealth()+"hp"+RESET);
-                        player.takenDamage(100);
+                        player.takenDamage(100,player);
                         mob_hit=0;
                     }
                     if (player.getHealth()<=0){
-                        player.restoreHp();
-                        mob.restoreHp();
+                        player.restoreHp(player);
+                        mob.restoreHp(mob);
                         System.out.println(RED+"\nYou died,try again"+RESET);
                         return false;
                     }
@@ -193,11 +193,11 @@ public class Main {
                     if(mob.getHealth()<=0){break;}
                 }
                 else {
-                    player.takenDamage(mob.getDamage());
+                    player.takenDamage(mob.getDamage(),player);
                     System.out.println(RED+"\n-" + mob.getDamage()+"\n You have:"+player.getHealth()+"hp"+RESET);
                     if (player.getHealth()<=0){
-                        player.restoreHp();
-                        mob.restoreHp();
+                        player.restoreHp(player);
+                        mob.restoreHp(player);
                         System.out.println(RED+"\nYou died,try again"+RESET);
                         return false;
                     }
@@ -212,10 +212,10 @@ public class Main {
         System.out.println(GREEN+"\nLuckily you were saved by your dragon sword\nYou're making your move!\n"+RESET);
         FightChoice(player,mob,weapon);
         System.out.println(RED+"\nThe dragon grabbed you with its mouth and did a lot of damage."+RESET);
-        player.takenDamage(mob.getDamage());
+        player.takenDamage(mob.getDamage(),player);
         System.out.println(RED+"\n-" + mob.getDamage()+"\n You have:"+player.getHealth()+"hp"+RESET);
         System.out.println(GREEN+"\nYou hit him in the eye and inflicted critical damage!!\n"+RESET);
-        mob.takenDamage(2500);
+        mob.takenDamage(2500,mob);
         System.out.println(GREEN+"\n-"+2500+" for enemy\n Enemy's HP:"+mob.getHealth()+RESET);
         System.out.println(GREEN+"\nThe dragon is dead! You won and something sent you back to the castle."+RESET);
         System.out.println(GREEN+"\nYou have won\n");
@@ -226,28 +226,28 @@ public class Main {
         int playerChoice = sc.nextInt();
         int PlayerDamage= weapon.getDamage()+10* player.getStrength();
         if (playerChoice==1){
-            mob.takenDamage(PlayerDamage);
+            mob.takenDamage(PlayerDamage,mob);
             System.out.println(GREEN+"\n-"+PlayerDamage+" for enemy\n Enemy's HP:"+mob.getHealth()+RESET);
         }
         else {
             if(weapon.getAbility()==0){
                 System.out.println(GREEN+"\nYour weapon has no ability,only damage");
-                mob.takenDamage(PlayerDamage);
+                mob.takenDamage(PlayerDamage,mob);
                 System.out.println("\n-"+PlayerDamage+" for enemy\n Enemy's HP:"+mob.getHealth()+RESET);
             }
             else if (weapon.getAbility()==1) {
                 System.out.println(GREEN+"\nThe enemy got a little burned up and took some extra damage");
-                mob.takenDamage(PlayerDamage+500);
+                mob.takenDamage(PlayerDamage+500,mob);
                 System.out.println("\n-"+(PlayerDamage+500)+" for enemy\n Enemy's HP:"+mob.getHealth()+RESET);
             }
             else if (weapon.getAbility()==2) {
                 System.out.println("\n-"+PlayerDamage+" for enemy\n Enemy's HP:"+mob.getHealth()+RESET);
-                mob.takenDamage(PlayerDamage);
+                mob.takenDamage(PlayerDamage,mob);
                 System.out.println(GREEN+"\nEnemy frozen, you can do one more move");
                 System.out.println(GREEN+"\n1.Just attack\n"+RESET);
                 int playerChoice2 = sc.nextInt();
                 if (playerChoice2==1){
-                    mob.takenDamage(PlayerDamage);
+                    mob.takenDamage(PlayerDamage,mob);
                     System.out.println(GREEN+"\n-"+PlayerDamage+" for enemy\n Enemy's HP:"+mob.getHealth()+RESET);
                 }
             }
@@ -278,7 +278,7 @@ public class Main {
             return true;
         }
         else if (a==2) {
-            player.restoreHp();
+            player.restoreHp(player);
             return true;
         }
         return false;
