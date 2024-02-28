@@ -20,11 +20,11 @@ public class Fight {
                 fightChoice.FightChoice(player, mob, weapon);
                 if(mob.getHealth()<=0){break;}
                 int randNum= rand.nextInt(6);
-                System.out.println("\nEnemy Attacks");
+                System.out.println("\n" + mob.getName() + " attacks");
                 if(randNum>=4) {
                     System.out.println("\nYou dodged attack");
                     fightChoice.FightChoice(player, mob, weapon);
-                    System.out.println("\nEnemy Attacks");
+                    System.out.println("\n" + mob.getName() + " attacks");
                     int randNum2= rand.nextInt(6);
                     if(randNum2>=4) {
                         System.out.println("\nYou dodged attack");
@@ -56,13 +56,15 @@ public class Fight {
                     }
                 }
             }
+            CharacterRestoreHp.restoreHp(player);
+            CharacterRestoreHp.restoreHp(mob);
             return true;
         }
         else {
             System.out.println("\nYou lost intelligence battle");
             while(mob.getHealth()>0){
                 int randNum2= rand.nextInt(6);
-                System.out.println("\nEnemy Attacks");
+                System.out.println("\n" + mob.getName() + " attacks");
                 if(randNum2>=4) {
                     System.out.println("\nYou dodged attack");
                     fightChoice.FightChoice(player, mob, weapon);
@@ -81,6 +83,8 @@ public class Fight {
                 }
             }
         }
+        CharacterRestoreHp.restoreHp(player);
+        CharacterRestoreHp.restoreHp(mob);
         return true;
     }
 }

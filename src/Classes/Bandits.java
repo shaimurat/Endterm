@@ -5,8 +5,8 @@ public class Bandits extends Mobs implements getAbility {
     public Bandits(){
         super();
     }
-    public Bandits(int intelligence,int damage,int health, String name,int ability){
-        super(intelligence, damage, health, name);
+    public Bandits(int intelligence,int damage,int health, String name,int ability, int givenxp){
+        super(intelligence, damage, health, name,givenxp);
         setAbility(ability);
     }
     public void setAbility(int ability) {
