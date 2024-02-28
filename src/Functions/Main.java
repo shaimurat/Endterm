@@ -18,7 +18,7 @@ public class Main {
             Weapon playerWeapon = weapons.get(0);
             System.out.println("\nYou've entered the world of Middle-earth! Your goal is to defeat your enemies and become the King of Elden.");
             System.out.println("\nYou started on your way to the castle of Middle-earth when suddenly you were attacked by a bandit with sword! \nFunctions.Fight started!");
-            Fight.fightReal(player,enemies.get(0),playerWeapon,100);
+            FightRes.fightRes(player,enemies.get(0),playerWeapon,100);
             while (menu.Menu(player,playerWeapon)){}
             System.out.println("\nYou continued on your way to the castle. On the way you met a knight who could not solve the riddle.\nHe was standing in front of the door with the riddle. \nOn the door was written \n\"I am an odd number. Take away a letter and I become even. What number am I?\"");
             System.out.println("\nWrite your answer:\n");
@@ -33,13 +33,13 @@ public class Main {
             while (menu.Menu(player,playerWeapon)){};
             System.out.println("You continued on your way. After a couple of hours you came to the castle. \nThe castle was guarded by a knight with ice sword. He immediately attacked you.");
             System.out.println("\nFight started");
-            Fight.fightReal(player,enemies.get(1),playerWeapon,500);
+            FightRes.fightRes(player,enemies.get(1),playerWeapon,500);
             System.out.println(("\nYou received Ice Sword! Ability:Freezing enemy, one more move"));
             playerWeapon=weapons.get(2);
             while (menu.Menu(player,playerWeapon)){}
             System.out.println("\nAfter your victory, you entered the castle courtyard where you were met by a dragon hunter. \nHe had spent his life searching for a rival who could give him the pleasure of battle. He offered you a duel.\n");
             System.out.println("Fight started!");
-            Fight.fightReal(player,enemies.get(2),playerWeapon,1000);
+            FightRes.fightRes(player,enemies.get(2),playerWeapon,1000);
             System.out.println("\nYou received Dragon Killer");
             playerWeapon=weapons.get(3);
             while (menu.Menu(player,playerWeapon)){}
