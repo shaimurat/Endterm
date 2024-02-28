@@ -1,4 +1,6 @@
-public class Weapon implements getAbility{
+package Classes;
+
+public class Weapon implements getAbility {
     private String name;
     private int damage;
     private int ability; //ability 1: Fire damage, ability 2: Freezing ability, ability 0: nothing

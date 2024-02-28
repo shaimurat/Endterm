@@ -1,4 +1,6 @@
-public class Bandits extends Mobs implements getAbility{
+package Classes;
+
+public class Bandits extends Mobs implements getAbility {
     int ability; // 1:sword 2:katana - gives bleeding after two hits
     public Bandits(){
         super();

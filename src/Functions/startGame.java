@@ -1,3 +1,7 @@
+package Functions;
+
+import Classes.Player;
+
 import java.util.Scanner;
 
 public class startGame {

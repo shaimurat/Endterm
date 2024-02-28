@@ -1,4 +1,6 @@
-public class Dragon extends Mobs implements getAbility{
+package Classes;
+
+public class Dragon extends Mobs implements getAbility {
     int ability; // 1:Fire
     public Dragon(){
         super();

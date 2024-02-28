@@ -1,3 +1,5 @@
+package Classes;
+
 public class Mobs extends Character{
     private int saveHealth;
     private int damage;

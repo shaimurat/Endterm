@@ -1,3 +1,8 @@
+package Functions;
+
+import Classes.Player;
+import Classes.Weapon;
+
 import java.util.Scanner;
 
 public class menu {
@@ -11,7 +16,7 @@ public class menu {
             return true;
         }
         else if (a==2) {
-            player.restoreHp(player);
+            CharacterRestoreHp.restoreHp(player);
             return true;
         }
         return false;

@@ -1,3 +1,5 @@
+package Classes;
+
 public class Player extends Character{
     private int up = 100;
     private int xp;

@@ -1,3 +1,7 @@
+package Functions;
+
+import Classes.Player;
+
 public class LevelUp {
     static void LevelUp(Player player, int userInp){
         if(userInp==1){

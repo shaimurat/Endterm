@@ -1,6 +1,9 @@
+package Functions;
+
+import Classes.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Random;
 
 public class Main {
     static Scanner sc=new Scanner(System.in);
@@ -8,13 +11,13 @@ public class Main {
         ArrayList<Weapon> weapons = Weapons();
         ArrayList<Mobs> enemies = Enemies();
         while (true) {
-            System.out.println("\nMain Menu:\n1.Start game\n2.Exit\n" );
+            System.out.println("\nFunctions.Main Menu:\n1.Start game\n2.Exit\n" );
             int user_inp= sc.nextInt();
             if (user_inp==1){
             Player player = startGame.GameStart();
             Weapon playerWeapon = weapons.get(0);
             System.out.println("\nYou've entered the world of Middle-earth! Your goal is to defeat your enemies and become the King of Elden.");
-            System.out.println("\nYou started on your way to the castle of Middle-earth when suddenly you were attacked by a bandit with sword! \nFight started!");
+            System.out.println("\nYou started on your way to the castle of Middle-earth when suddenly you were attacked by a bandit with sword! \nFunctions.Fight started!");
             Fight.fightReal(player,enemies.get(0),playerWeapon,100);
             while (menu.Menu(player,playerWeapon)){}
             System.out.println("\nYou continued on your way to the castle. On the way you met a knight who could not solve the riddle.\nHe was standing in front of the door with the riddle. \nOn the door was written \n\"I am an odd number. Take away a letter and I become even. What number am I?\"");
@@ -57,8 +60,8 @@ public class Main {
         ArrayList<Mobs> enemies = new ArrayList<>();
         enemies.add(new Bandits(5,250,400,"Bandit",1));
         enemies.add(new Bandits(7,250,500,"Knight",2));
-        enemies.add(new Bandits(10,350,750,"Dragon Hunter",2));
-        enemies.add(new Dragon(10,800,3500,"Fire Dragon",1));
+        enemies.add(new Bandits(10,350,750,"Classes.Dragon Hunter",2));
+        enemies.add(new Dragon(10,800,3500,"Fire Classes.Dragon",1));
         return enemies;
     }
     static ArrayList<Weapon> Weapons(){
