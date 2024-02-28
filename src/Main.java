@@ -1,6 +1,6 @@
-package Functions;
-
 import Classes.*;
+import Functions.Admin;
+import Functions.Game;
 
 import java.util.ArrayList;
 import java.util.Objects;
