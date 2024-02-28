@@ -3,6 +3,7 @@ package Functions;
 import Classes.*;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -11,13 +12,31 @@ public class Main {
         ArrayList<Weapon> weapons = Weapons();
         ArrayList<Mobs> enemies = Enemies();
         while (true) {
-            System.out.println("Main Menu:\n1.Start game\n2.Admin\n3.Exit\n" );
+            System.out.println("Main Menu:\n1.Start game\n2.Admin\n3.Show All Mobs\n4.Show All Weapons\n5.Exit\n" );
             int user_inp= sc.nextInt();
             if (user_inp==1){
                 Game.game(enemies, weapons);
             } else if (user_inp == 2) {
-                Admin.admin(enemies,weapons);
-            } else{break;}
+                System.out.println("Write password:");
+                String pass = sc.next();
+                if (Objects.equals(pass, "Danial")){
+                    Admin.admin(enemies,weapons);
+                }
+                else{
+                    System.out.println("Wrong!");
+                }
+            }
+            else if (user_inp == 3){
+                for (Mobs mob: enemies){
+                    System.out.println(mob.toString());
+                }
+            }
+            else if (user_inp == 4){
+                for (Weapon weapon: weapons){
+                    System.out.println(weapon.toString());
+                }
+            }
+            else{break;}
         }
     }
     static ArrayList<Mobs> Enemies(){
